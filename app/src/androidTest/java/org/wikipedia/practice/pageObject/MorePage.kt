@@ -7,14 +7,14 @@ import org.wikipedia.R
 
 class MorePage {
 
-    private val loginBttn = R.id.main_drawer_account_container
-    private val settingsBttn = R.id.main_drawer_settings_container
+    private val loginBttn = ViewMatchers.withId(R.id.main_drawer_account_container)
+    private val settingsBttn = ViewMatchers.withId(R.id.main_drawer_settings_container)
 
     fun openLoginPage() {
-        Espresso.onView(ViewMatchers.withId(loginBttn)).perform(ViewActions.click())
+        Espresso.onView(loginBttn).perform(ViewActions.click())
     }
 
     fun openSettingsPage() {
-        Espresso.onView(ViewMatchers.withId(settingsBttn)).perform(ViewActions.click())
+        Espresso.onView(settingsBttn).perform(ViewActions.click())
     }
 }

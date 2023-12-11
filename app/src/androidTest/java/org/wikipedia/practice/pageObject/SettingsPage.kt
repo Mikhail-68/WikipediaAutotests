@@ -11,12 +11,12 @@ import org.wikipedia.R
 
 class SettingsPage {
 
-    private val recyclerView = R.id.recycler_view
+    private val recyclerView = withId(R.id.recycler_view)
 
     fun openAboutDescriptionPage() {
         val aboutDestriptionTxt = R.string.about_description
 
-        onView(withId(recyclerView)).perform(
+        onView(recyclerView).perform(
             RecyclerViewActions.actionOnItem<ViewHolder>(
                 hasDescendant(withText(aboutDestriptionTxt)),
                 click()
@@ -27,7 +27,7 @@ class SettingsPage {
     fun openPrivacyPolicy() {
         val privacyPolicyDescription = R.string.privacy_policy_description
 
-        onView(withId(recyclerView)).perform(RecyclerViewActions.actionOnItem<ViewHolder>(
+        onView(recyclerView).perform(RecyclerViewActions.actionOnItem<ViewHolder>(
             hasDescendant(withText(privacyPolicyDescription)),
             click()
         ))
@@ -52,6 +52,4 @@ class SettingsPage {
     fun checkAppLicenseHeadingIsEnabled() {
         onView(withId(R.id.about_app_license)).check(matches(isEnabled()))
     }
-
-
 }

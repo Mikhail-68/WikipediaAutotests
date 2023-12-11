@@ -7,10 +7,10 @@ import org.wikipedia.R
 
 class IntroductoryPage {
 
-    private val skipBttn = R.id.fragment_onboarding_skip_button
+    private val skipBttn = ViewMatchers.withId(R.id.fragment_onboarding_skip_button)
 
     fun skip() {
-        Espresso.onView(ViewMatchers.withId(skipBttn)).perform(ViewActions.click())
+        Espresso.onView(skipBttn).perform(ViewActions.click())
     }
 
 }

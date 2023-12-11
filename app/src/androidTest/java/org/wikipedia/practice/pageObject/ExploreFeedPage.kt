@@ -17,49 +17,16 @@ import org.wikipedia.R
 
 class ExploreFeedPage {
 
-    private val recyclerView = R.id.content_types_recycler
+    private val recyclerView = withId(R.id.content_types_recycler)
 
     fun checkAllCheckboxIsOn() {
-        // val itemCount = mainActivity.activity.findViewById<RecyclerView>(recyclerView).adapter?.itemCount
-
         val countCheckboxes = 7
 
         for(pos in 0 until countCheckboxes) {
-            onView(withId(recyclerView))
+            onView(recyclerView)
                 .perform(RecyclerViewActions.scrollToPosition<ViewHolder>(pos))
                 .check(matches(atPosition(pos, Matchers.allOf(hasDescendant(isChecked())))))
         }
-
-        //===============================
-        // Не работающие попытки...
-        //===============================
-
-//        for(pos in 0 until countCheckboxes) {
-//            onView(withId(recyclerView))
-//                .perform(RecyclerViewActions.scrollToPosition<ViewHolder>(pos))
-//                .check(matches(hasDescendant(isChecked())))
-//        }
-
-//        for(i in 0 until countCheckboxes) {
-//            onView(ViewMatchers.withId(recyclerView))
-//                .perform(RecyclerViewActions.actionOnItemAtPosition<ViewHolder>(
-//                    i,
-//                ))
-//        }
-
-        //onView(ViewMatchers.withId(recyclerView)).perform(
-//            RecyclerViewActions.scrollTo<ViewHolder>(
-//                withId(R.id.feed_content_type_title)
-//            )
-        //).check(ViewAssertions.matches(ViewMatchers.isChecked()))
-
-//        onView(Matchers.allOf(
-//
-//            //isDescendantOfA(hasDescendant(hasDescendant(withText(R.id.feed_content_type_title)))),
-//            //hasDescendant(isAssignableFrom(MaterialSwitch::class.java))
-//            withId(checkbox)
-//        )).perform(click())
-
     }
 
     fun atPosition(
